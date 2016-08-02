@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>ISSSKalendar</title>
+<title>ISSS Grupe</title>
 <sec:csrfMetaTags />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
 <link href='https://fonts.googleapis.com/css?family=Ubuntu'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/angular-multi-select.css">
-<link rel="stylesheet" href="css/ISSSCStyle.css">
+<link rel="stylesheet" href="css/ISSSGStyle.css">
 <script type="text/javascript"
 	src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%2C%22nocss%22%3Atrue%7D%5D%7D"></script>
 <style type="text/css">
@@ -28,12 +28,8 @@
 	<div ng-controller="navigation as nav" class="container topbar">
 		<ul class="nav nav-pills" role="tablist">
 			<li ng-class="{active:nav.tab('home')}"><a href="#/">Home</a></li>
-			<li ng-show="authenticated" ng-class="{active:nav.tab('students')}"><a
-				href="#/students">studenti</a></li>
 			<li ng-show="authenticated" ng-class="{active:nav.tab('events')}"><a
-				href="#/events">Events</a></li>
-			<li ng-show="authenticated" ng-class="{active:nav.tab('calendar')}"><a
-				href="#/1/calendar/">Calendar</a></li>
+				href="#/groups">Groups</a></li>
 			<li ng-show="authenticated" ng-class="{active:nav.tab('settings')}"><a
 				href="#/1/settings">Settings</a></li>
 			<li ng-show="!authenticated"
