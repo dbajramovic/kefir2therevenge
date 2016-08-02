@@ -1,0 +1,21 @@
+<table class="table movietable">
+  <tr>
+    <td><h3>Details for {{group.lastName}} {{group.firstName}} ({{group.jmbag}})</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Last name</td>
+    <td>{{group.lastName}}</td>
+  </tr>
+  <tr>
+    <td>First name</td>
+    <td>{{group.firstName}}</td>
+  </tr>
+  <tr>
+    <td>JMBAG</td>
+    <td>{{group.jmbag}}</td>
+  </tr>
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editgroup({id:group._id})">Edit</a>
+</div>

@@ -1,4 +1,4 @@
-package ba.utic.dummy;
+package ba.utic.isssgrupe;
 
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EntityScan(basePackages = {
-		  "ba.utic.dummy.model"
+		  "ba.utic.isssgrupe.model"
 		  })
 @EnableJpaRepositories(basePackages = {
-		  "ba.utic.dummy.controller"
+		  "ba.utic.isssgrupe.controller"
 		  })
 @RequestMapping("/resource")
-public class DummyResource {
+public class ISSSGrupeResource {
 
 }

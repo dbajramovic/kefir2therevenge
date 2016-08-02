@@ -1,4 +1,4 @@
-package ba.utic.dummy;
+package ba.utic.isssgrupe;
 
 import java.io.IOException;
 
@@ -30,10 +30,10 @@ import org.springframework.web.util.WebUtils;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableOAuth2Sso
-public class DummyApplication extends WebSecurityConfigurerAdapter {
+public class ISSSGrupeApplication extends WebSecurityConfigurerAdapter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DummyApplication.class, args);
+		SpringApplication.run(ISSSGrupeApplication.class, args);
 	}
 
 	@Override
