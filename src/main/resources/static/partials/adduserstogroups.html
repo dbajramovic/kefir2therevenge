@@ -1,0 +1,8 @@
+<div class="container" ng-controller="AddingCtrl" data-ng-init="init()">
+	<h1 class="title">Dodajte korisnike u grupe</h1>
+	<form novalidate="novalidate" class="form-horizontal">
+		<div ng-dropdown-multiselect="" options="users"
+			selected-model="usersmodel" extra-settings="userssettings"
+			translation-texts="userscustomTexts"></div>
+	</form>
+</div>

@@ -1,30 +1,38 @@
 <div class="container">
-    <h1>Izmjena groupa</h1>
+    <h1 class="title">Izmjena groupa</h1>
 
-    <form novalidate="novalidate" class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="inputFirstName">First name:</label>
-            <div class="controls">
-                <input type="text" id="inputFirstName" ng-model="group.firstName"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputLastName">Last name:</label>
-            <div class="controls">
-                <input type="text" id="inputLastName" ng-model="group.lastName"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputJMBAG">JMBAG:</label>
-            <div class="controls">
-                <input type="text" id="inputJMBAG" ng-model="group.jmbag"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <a ng-click="cancel()" class="btn btn-small">cancel</a>
-                <a ng-click="updategroup()" class="btn btn-small btn-primary">update group</a>
-            </div>
-        </div>
-    </form>
+  <form novalidate="novalidate" class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="inputName">Naziv grupe:</label>
+			<div class="controls">
+				<input type="text" id="inputName"  class="form-control" ng-model="group.name" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputDescription">Opis:</label>
+			<div class="controls">
+				<textarea rows="7" id="inputDescription"
+					ng-model="group.description" class="form-control"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="checkbox">
+				<label><input type="checkbox" ng-model="group.teachinggroup" class="form-control">Da
+					li je u pitanju nastavna grupa?</label>
+			</div>
+		</div>
+		<br>
+		<div class="control-group">
+			<div class="checkbox">
+				<label><input type="checkbox" ng-model="group.forcedgroup" class="form-control">Da
+					li je u pitanju nametnuta grupa?</label>
+			</div>
+		</div>
+		<br>
+		<div class="control-group">
+			<div class="controls">
+				<a ng-click="updategroup()" class="btn btn-small btn-primary">Snimi promjene</a>
+			</div>
+		</div>
+	</form>
 </div>

@@ -1,5 +1,5 @@
-<div class="span6">
-	<h1 class="title">ISSS Calendar</h1>
+<div class="span6" ng-controller="HomeCtrl">
+	<h1 class="title">ISSS Groups</h1>
 	<hr>
 	<div ng-show="authenticated">
 		<p>Welcome to ISSS Groups.</p>
@@ -8,7 +8,7 @@
 		<p>Niste prijavljeni. Kliknite na dugme &quot;login&quot; za ulaz</p>
 	</div>
 	<div class="col-md-6">
-		<h3 class="title">Your upcoming groups</h3>
+		<h3 class="title">Your groups</h3>
 		<table class="table table-condensed">
 			<thead>
 				<tr>
@@ -18,22 +18,32 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="group in groups">
-					<td class="body-text">Name: {{group.name}}, Description: {{group.description}},  Founded: {{group.dateofcreation |
+					<td class="body-text">Name: {{group.name}}, Description:
+						{{group.description}}, Founded: {{group.dateofcreation |
 						date:'dd/MM/yyyy , hh:mm' }}</td>
-					<td><a
-						ng-click="viewgroup(group.id)"
+					<td><a ng-click="viewgroup(group.id)"
 						class="btn btn-small btn-primary">View</a></td>
 				</tr>
+			</tbody>
 		</table>
 		<ul class="pagination pagination-style">
 			<li ng-repeat="pagenum in pagenums" class="pagination-style"><a
 				class="pagination-style" data-ng-click="getPagedQuery(pagenum)">{{pagenum}}</a></li>
-			<li class="pagination-style"><a
-				class="pagination-style" data-ng-click="getPagedQuery(20)">>></a></li>
+			<li class="pagination-style"><a class="pagination-style"
+				data-ng-click="getPagedQuery(20)">>></a></li>
 		</ul>
 	</div>
 	<div class="col-md-6">
-		<h3 class="title">News</h3>
-		<feed summary="true" url="http://www.klix.ba/rss/vijesti" count="3" />
+		<h3 class="title">Check groups for user</h3>
+			<form novalidate="novalidate" class="form-horizontal">
+				<label class="control-label" for="inputName">Search user:</label>
+				<div class="controls" >
+					<input type="text" id="inputName" 
+						ng-model="searchterm" /> <a ng-click="createNewgroup()"
+						class="btn btn-small btn-primary">Search</a>
+				</div>
+				<textarea rows="7" id="inputDescription"
+					ng-model="grouplist" class="form-control"></textarea>
+			</form>
 	</div>
 </div>

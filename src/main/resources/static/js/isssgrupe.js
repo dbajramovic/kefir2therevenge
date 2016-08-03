@@ -1,4 +1,4 @@
-var app = angular.module('dummy', [ 'ngRoute', 'ngResource' ]);
+var app = angular.module('dummy', [ 'ngRoute', 'ngResource', 'angularjs-dropdown-multiselect','feeds' ]);
 
 app.config(function($routeProvider) {
 
@@ -19,6 +19,9 @@ app.config(function($routeProvider) {
 	.when('/groups/:id/edit', {
 		templateUrl: 'partials/group-edit.html', controller: 'groupEditCtrl'
 		})
+	.when('/adduserstogroups', {
+		templateUrl: 'partials/adduserstogroups.html', controller: 'AddingCtrl'
+	})
 	.otherwise('/');
 
 }).controller('navigation',
@@ -34,6 +37,7 @@ function($rootScope, $http, $location, $route) {
 	$http.get('user').then(function(response) {
 		if (response.data.name) {
 			$rootScope.authenticated = true;
+			$rootScope.username = response.data.name;
 		} else {
 			$rootScope.authenticated = false;
 		}
@@ -76,7 +80,8 @@ app.factory('groupsService', function($resource) {
   });
 });
 
-//app.controller('groupListCtrl',  function($scope, $state, popupService, $window, groupService) {
+// app.controller('groupListCtrl', function($scope, $state, popupService,
+// $window, groupService) {
 app.controller('groupListCtrl',  function($scope, $window, groupsService, groupService, $location) {
 	  var qry = groupsService.query();
 	  $scope.groups = qry; 
@@ -112,7 +117,21 @@ app.controller('groupListCtrl',  function($scope, $window, groupsService, groupS
 
     $scope.group = groupService.show({id: $routeParams.id});
     
-}).controller('groupCreateCtrl', function($scope, groupsService, $location) {
+}).controller('groupCreateCtrl', function($scope, groupsService, $location,$rootScope,$log) {
+	
+	$scope.init = function() {
+			$scope.group = {
+				name: '',
+				description: '',
+				dateofcreation: new Date(),
+				creatorusername: $rootScope.username,
+				picpath: 'N/A',
+				teachinggroup: false,
+				forcedgroup: false,
+				dissolved: false
+			};
+			$log.debug($scope.group);
+	};
     // callback for ng-click 'createNewgroup':
     $scope.createNewgroup = function () {
     	groupsService.create($scope.group);
@@ -135,3 +154,17 @@ app.controller('groupListCtrl',  function($scope, $window, groupsService, groupS
     $scope.group = groupService.show({id: $routeParams.id});
 
 });
+app.controller('AddingCtrl', function($scope, $routeParams, groupService, $location,$log) {
+   $scope.init = function() {
+	   $log.debug("YO");
+	   $scope.listOfStudentsToAddToEvent = [];
+	   $scope.usersmodel = [];
+	   $scope.userscustomTexts = {buttonDefaultText: 'Select users to add:' };
+	   $scope.userssettings = {displayProp: 'username', enableSearch: true ,scrollable: true , scrollableHeight: '500px'};
+   };
+   //NEED /users or something like that to get users from core
+});
+app.controller('HomeCtrl',function($scope, $routeParams, groupService, $location,$log) {
+	
+	   //NEED /users or something like that to get users from core
+	});
